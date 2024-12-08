@@ -52,8 +52,8 @@ class Field {
          this.field[this.curPosition[1]][this.curPosition[0]] = PLAYER   //Places the Player on the Field
       
          console.log(this.curPosition);
-         this.generateHoles(); 
-         this.generateHats();
+         this.generateHoles();                               // generate random holes
+         this.generateHats();                                // generate random hat position
     }
 
 
