@@ -59,14 +59,14 @@ class Field {
 
     generateHoles() {
     // Generate a random number of holes between 3 and 10
-    const numHoles = Math.floor(Math.random() * 10) + 3; // Random number between 3 and 10
+    const numHoles = Math.floor(Math.random() * 10) + 6; // Random number between 3 and 10
 
     let holesPlaced = 0;        // Set the holePlaced
 
     while (holesPlaced < numHoles) {
         // Randomly select a position for a hole, randomize rows and cols
-        const randomRow = Math.floor(Math.random() * this.rows);
-        const randomCol = Math.floor(Math.random() * this.cols);
+        const randomRow = Math.floor(Math.random() * (this.rows -1));
+        const randomCol = Math.floor(Math.random() * (this.cols -1));
 
         // Place a hole only if that position is not a hole, player or hat
         if (this.field[randomRow][randomCol] !== HOLE && this.field[randomRow][randomCol] !== PLAYER && this.field[randomRow][randomCol] !== HAT) {
@@ -81,8 +81,8 @@ class Field {
 
     while (hatPlaced < 1) {
         // Randomly select a position for a hat
-        const randomRowHat = Math.floor(Math.random() * (this.rows - 7 + 1)) + 7 // using the Max- Min formula to always randomly generate the hat in the 7-10th row.
-        const randomColHat = Math.floor(Math.random() * this.cols);      // This will generate the hat on a random column within the number of cols allocated to field.
+        const randomRowHat = Math.floor(Math.random() * (this.rows - 7)) + 6 // using the Max- Min formula to always randomly generate the hat in the 7-10th row.
+        const randomColHat = Math.floor(Math.random() * (this.cols -1));      // This will generate the hat on a random column within the number of cols allocated to field.
 
         // Place a hole only if that position is not already a hole
         if (this.field[randomRowHat][randomColHat] !== HOLE && this.field[randomRowHat][randomColHat] !== PLAYER && this.field[randomRowHat][randomColHat] !== HAT) {
